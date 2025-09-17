@@ -1,0 +1,19 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  /* ❌ supprime le background ici */
+  /* background-color: #242424; */
+}
+
+body {
+  margin: 0;
+  /* ❌ enlève le flex qui écrase tout */
+  /* display: flex;
+  place-items: center; */
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--bg); /* ✅ prends la couleur définie dans hero.module.css */
+}
