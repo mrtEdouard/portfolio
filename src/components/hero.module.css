@@ -227,17 +227,15 @@ html, body, #root, .page-root {
   .dveloppeur-web-container { font-size: clamp(22px, 3.5vw, 48px); }
 }
 
-
-
-/* === Réplica parfait de la maquette 1440×810 UNIQUEMENT < 1440×810 === */
-@media (max-width: 1439px), (max-height: 809px) {
+/* === Réplica parfait de la maquette 1440×810 UNIQUEMENT si
+      largeur < 1440 ET hauteur < 810 === */
+@media (min-width: 1440px) and (min-height: 810px) {
   :root{
     --baseW: 1440;
     --baseH: 810;
     --k: min(100vw / var(--baseW), 100vh / var(--baseH));
   }
 
-  /* conteneur plein écran pour la scène scaled */
   .scaleWrap{
     position: fixed;
     inset: 0;
@@ -245,7 +243,6 @@ html, body, #root, .page-root {
     z-index: 0;
   }
 
-  /* la scène prend la taille de référence puis est uniformément zoomée */
   .scaled{
     width: calc(var(--baseW) * 1px);
     height: calc(var(--baseH) * 1px);
@@ -253,14 +250,12 @@ html, body, #root, .page-root {
     transform-origin: top left;
   }
 
-  /* on neutralise la dépendance au viewport pour la scène */
   .scaled.desktop-1{
     width: calc(var(--baseW) * 1px);
     height: calc(var(--baseH) * 1px);
-    font-size: 128px; /* taille maquette, sera scalée */
+    font-size: 128px;
   }
 
-  /* Positions EXACTES de la maquette (en px), stables partout sous le seuil */
   .scaled .mouret-edouard{ top:256px; left:185px; width:516px; }
   .scaled .dveloppeur-web-container{ top:605px; left:222px; font-size:64px; width:739px; }
   .scaled .desktop-1-child{

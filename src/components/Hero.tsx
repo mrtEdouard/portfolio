@@ -36,7 +36,7 @@ export default function Hero() {
           {/* Ligne + Carte + Photo */}
           <div className={styles["desktop-1-child"]} />
           <div className={styles["desktop-1-item"]} />
-          <img className={styles.portrait} src="/images/portrait.jpg" alt="Portrait d'Edouard" />
+          <img className={styles.portrait} src="/images/photo.png" alt="Portrait d'Edouard" />
 
           {/* Chevron */}
           <svg className={styles.chevron} viewBox="0 0 24 24" aria-hidden>
