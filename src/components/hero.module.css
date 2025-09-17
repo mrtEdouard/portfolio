@@ -266,3 +266,90 @@ html, body, #root, .page-root {
   .scaled .portrait{ top:273px; left:919px; width:272px; height:474px; border-radius:25px; object-fit:cover; }
   .scaled .chevron{ bottom:24px; left:50%; transform:translateX(-50%); width:72px; height:auto; opacity:.85; }
 }
+
+
+/* ==== MOBILE OVERRIDE (désactive le scale & remap le layout) ==== */
+@media (max-width: 600px) {
+  /* 1) Couper le système de scale pour mobile */
+  .scaleWrap {
+    position: relative !important;       /* plus de fixed plein écran */
+    inset: auto !important;
+    overflow: hidden !important;
+  }
+  .scaled {
+    transform: none !important;          /* ❌ pas de scale */
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  .scaled.desktop-1 {
+    width: 100vw !important;
+    height: 100vh !important;
+    font-size: clamp(36px, 12vw, 56px) !important; /* tailles lisibles */
+  }
+
+  /* 2) Navbar compacte */
+  .nav-inner { padding: 10px 14px !important; }
+  .links { gap: 12px !important; }
+  .links a { font-size: 14px !important; }
+  /* si tu veux carrément cacher les liens sur très petit écran, dé-commente :
+   .links { display:none !important; } */
+
+  /* 3) Repositionnement des éléments (en %/vw/vh) */
+  .scaled .mouret-edouard {
+    top: 16vh !important;
+    left: 6vw !important;
+    width: 80vw !important;
+    line-height: 0.95 !important;
+  }
+
+  .scaled .desktop-1-child {
+    top: 54vh !important;
+    left: 6vw !important;
+    width: 120px !important;
+    border-top-width: 4px !important;
+  }
+
+  .scaled .dveloppeur-web-container {
+    top: 58vh !important;
+    left: 6vw !important;
+    width: 88vw !important;
+    font-size: clamp(18px, 6.5vw, 28px) !important;
+  }
+
+  /* carte grise + portrait : plus petits et calés à droite */
+  .scaled .desktop-1-item {
+    top: 18vh !important;
+    right: 6vw !important; left: auto !important;
+    width: 42vw !important;
+    height: 44vh !important;
+    border-radius: 22px !important;
+  }
+  .scaled .portrait {
+    top: 15vh !important;
+    right: 8vw !important; left: auto !important;
+    width: 42vw !important;
+    height: 48vh !important;
+    border-radius: 22px !important;
+    object-fit: cover !important;
+  }
+
+  .scaled .chevron {
+    bottom: 14px !important;
+    width: 56px !important;
+  }
+}
+
+/* Option “phablet” un peu plus large (601–820px) */
+@media (min-width: 601px) and (max-width: 820px) {
+  .scaled { transform: none !important; width: 100vw !important; height: 100vh !important; }
+  .scaled.desktop-1 { font-size: clamp(40px, 9vw, 64px) !important; }
+
+  .scaled .mouret-edouard { top: 14vh !important; left: 7vw !important; width: 70vw !important; }
+  .scaled .desktop-1-child { top: 52vh !important; left: 7vw !important; width: 140px !important; }
+  .scaled .dveloppeur-web-container {
+    top: 56vh !important; left: 7vw !important; width: 70vw !important;
+    font-size: clamp(20px, 4.6vw, 34px) !important;
+  }
+  .scaled .desktop-1-item { top: 16vh !important; right: 8vw !important; width: 36vw !important; height: 46vh !important; }
+  .scaled .portrait { top: 13vh !important; right: 10vw !important; width: 36vw !important; height: 50vh !important; }
+}
